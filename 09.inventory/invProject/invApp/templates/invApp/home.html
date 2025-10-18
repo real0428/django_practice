@@ -1,0 +1,14 @@
+{% extends "invApp/layout.html" %}
+{% block title %} 首頁 {% endblock %} 
+{%block content %}
+<div class="jumbotron rounded py-5 px-4 mb-4 bg-white text-center">
+  <h1 class="display-5 fw-bold mb-3 text-dark">歡迎使用庫存系統</h1>
+  <p class="lead mb-4 text-secondary">
+    本庫存系統提供簡單易用的介面，協助您有效管理商品庫存。<br>
+    您可以快速查詢、更新及追蹤商品資訊，提升庫存管理效率。
+  </p>
+  <hr class="my-4">
+  <p class="mb-0 text-muted">立即開始管理您的商品庫存吧！</p>
+  <a href="{% url 'product_list' %}" class="btn btn-lg btn-success mt-4">瀏覽庫存商品</a>
+</div>
+{% endblock %}

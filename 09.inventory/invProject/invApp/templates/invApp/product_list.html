@@ -1,0 +1,38 @@
+{% extends "invApp/layout.html" %}
+{% block title %} 庫存清單 {% endblock %}
+{% block content %}
+  <h1 class="display-6">庫存清單</h1>
+  <table class="table">
+  <thead>
+    <tr class="bg-dark text-white">
+      <th scope="col">ID</th>
+      <th scope="col">商品名稱</th>
+      <th scope="col">單位</th>
+      <th scope="col">單價</th>
+      <th scope="col">數量</th>
+      <th scope="col">供應商</th>
+      <th scope="col">動作</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+      <tr>
+        <td>{{ product.product_id }}</th>
+        <td>{{ product.name }}</td>
+        <td>{{ product.sku }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.supplier }}</td>
+        <td>
+          <a href="{% url 'product_update' product.product_id %}" class="btn btn-primary">修改</a>
+          <a href="{% url 'product_delete' product.product_id %}" class="btn btn-danger">刪除</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="7">暫無庫存</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

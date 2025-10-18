@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>首頁</h2>
+      <p>哈囉，{{request.user.username}}</p>
+      <a href="{% url 'protected' %}">前往你的專屬頁面</a>
+      <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">登出</button>
+      </form>
+    </div>
+  </body>
+</html>
